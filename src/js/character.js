@@ -8,8 +8,6 @@ export default class Character {
       this.name = name;
     }
 
-    this.attack = 0;
-    this.defence = 0;
     this.health = 100;
     this.level = 1;
   }
