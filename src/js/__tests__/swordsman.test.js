@@ -44,3 +44,23 @@ test("Тест метода damage класса Swordsman", () => {
       }
   expect(nChar).toEqual(result);
 })
+
+test("ошибки метода levelUp класса Swordsman", () => {
+  expect(()=>{
+    const nChar = new Swordsman("nChar");
+    nChar.health = 0;
+    nChar.levelUp();
+  }).toThrowError('Нельзя повысить уровень умершего.');
+})
+
+test("Ошибка при длинне имени < 2", () => {
+  expect(()=>{
+    const nChat = new Swordsman("n")
+  }).toThrowError('Не корректные данные')
+})
+
+test("Ошибка при длинне имени > 10", () => {
+  expect(()=>{
+    const nChat = new Swordsman("newCharacterBowerman")
+  }).toThrowError('Не корректные данные')
+})

@@ -44,3 +44,23 @@ test("Тест метода damage класса Bowerman", () => {
       }
   expect(nChar).toEqual(result);
 })
+
+test("ошибки метода levelUp класса Bowerman", () => {
+  expect(()=>{
+    const nChar = new Bowerman("nChar");
+    nChar.health = 0;
+    nChar.levelUp();
+  }).toThrowError('Нельзя повысить уровень умершего.');
+})
+
+test("Ошибка при длинне имени < 2", () => {
+  expect(()=>{
+    const nChat = new Bowerman("n")
+  }).toThrowError('Не корректные данные')
+})
+
+test("Ошибка при длинне имени > 10", () => {
+  expect(()=>{
+    const nChat = new Bowerman("newCharacterBowerman")
+  }).toThrowError('Не корректные данные')
+})

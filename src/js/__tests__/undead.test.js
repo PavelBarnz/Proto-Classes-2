@@ -44,3 +44,23 @@ test("Тест метода damage класса Undead", () => {
       }
   expect(nChar).toEqual(result);
 })
+
+test("ошибки метода levelUp класса Undead", () => {
+  expect(()=>{
+    const nChar = new Undead("nChar");
+    nChar.health = 0;
+    nChar.levelUp();
+  }).toThrowError('Нельзя повысить уровень умершего.');
+})
+
+test("Ошибка при длинне имени < 2", () => {
+  expect(()=>{
+    const nChat = new Undead("n")
+  }).toThrowError('Не корректные данные')
+})
+
+test("Ошибка при длинне имени > 10", () => {
+  expect(()=>{
+    const nChat = new Undead("newCharacterBowerman")
+  }).toThrowError('Не корректные данные')
+})

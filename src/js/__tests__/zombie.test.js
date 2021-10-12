@@ -44,3 +44,23 @@ test("Тест метода damage класса Zombie", () => {
       }
   expect(nChar).toEqual(result);
 })
+
+test("ошибки метода levelUp класса Zombie", () => {
+  expect(()=>{
+    const nChar = new Zombie("nChar");
+    nChar.health = 0;
+    nChar.levelUp();
+  }).toThrowError('Нельзя повысить уровень умершего.');
+})
+
+test("Ошибка при длинне имени < 2", () => {
+  expect(()=>{
+    const nChat = new Zombie("n")
+  }).toThrowError('Не корректные данные')
+})
+
+test("Ошибка при длинне имени > 10", () => {
+  expect(()=>{
+    const nChat = new Zombie("newCharacterBowerman")
+  }).toThrowError('Не корректные данные')
+})
